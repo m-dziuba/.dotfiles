@@ -1,0 +1,25 @@
+export PATH=$PATH:~/.local/scripts
+export PATH=$HOME/.config/rofi/scripts:$PATH
+export OPENAI_API_KEY=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
+
+bindkey -s ^f "tmux-sessionizer\n"
+
+source ~/.alias
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/mdziuba/go/bin
+
+setxkbmap -layout pl
+setxkbmap -option lv3:lalt_switch -option lv3:ralt_switch
+xset s off
+xset -dpms
+xrandr_result=$(xrandr --current | grep DP-5 | grep 1920x1080+1920+0)
+if [ -z $xrandr_result ]
+then
+    xrandr --output DP-0 --primary --left-of DP-5
+fi;
+
+if [ -z "$TMUX" ] && [ ${UID} != 0 ]
+then
+   exec tmux new-session -A -s main
+fi
+
