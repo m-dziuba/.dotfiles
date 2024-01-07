@@ -50,7 +50,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "/home/mdziuba/.local/kitty.app/bin/kitty -e tmux new"
+terminal = "/usr/bin/kitty -e tmux new"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " && " .. editor
 
