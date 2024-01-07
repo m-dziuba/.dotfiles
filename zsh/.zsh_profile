@@ -17,11 +17,11 @@ xset -dpms
 NUM_MONITORS=$(xrandr --listmonitors | grep -c "Monitors:")
 if [ "$NUM_MONITORS" -eq 2 ]; then
     xrandr_result=$(xrandr --current | grep DP-5 | grep 1920x1080+1920+0)
+    if [ -z $xrandr_result ]
+    then
+        xrandr --output DP-0 --primary --left-of DP-5
+    fi;
 fi 
-if [ -z $xrandr_result ]
-then
-    xrandr --output DP-0 --primary --left-of DP-5
-fi;
 
 if [ -z "$TMUX" ] && [ ${UID} != 0 ]
 then
