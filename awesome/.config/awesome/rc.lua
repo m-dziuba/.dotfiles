@@ -86,7 +86,7 @@ beautiful.menu_bg_normal="#1f1f28"
 beautiful.menu_bg_focus="#363646"
 beautiful.menu_fg_normal="#dcd7ba"
 beautiful.menu_fg_focus="#9b998d"
-beautiful.menu_font="FiraCode NF regular 11"
+beautiful.menu_font="FiraCodeNF-Reg 11"
 
 if has_fdo then
     mymainmenu = freedesktop.menu.build({
