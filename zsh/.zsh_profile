@@ -1,3 +1,8 @@
+if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+  exec startx
+fi
+
+
 export PATH=$PATH:~/.local/scripts
 export PATH=$HOME/.config/rofi/scripts:$PATH
 export OPENAI_API_KEY=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
@@ -12,7 +17,10 @@ setxkbmap -layout pl
 setxkbmap -option lv3:lalt_switch -option lv3:ralt_switch
 xset s off
 xset -dpms
-xrandr_result=$(xrandr --current | grep DP-5 | grep 1920x1080+1920+0)
+NUM_MONITORS=$(xrandr --listmonitors | grep -c "Monitors:")
+if [ "$NUM_MONITORS" -eq 2 ]; then
+    xrandr_result=$(xrandr --current | grep DP-5 | grep 1920x1080+1920+0)
+fi 
 if [ -z $xrandr_result ]
 then
     xrandr --output DP-0 --primary --left-of DP-5
