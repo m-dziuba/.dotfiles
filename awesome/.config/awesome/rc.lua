@@ -563,7 +563,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.border_focus = "#dcd7ba"
 awful.spawn.with_shell("source ~/.zshrc")
 awful.spawn.with_shell("picom")
-awful.spawn.with_shell("feh --bg-fill ~/Pictures/darksky2.png")
+awful.spawn.with_shell("feh --bg-fill ~/.dotfiles/darksky2.png")
 beautiful.useless_gap=10
 beautiful.notification_max_width = 100
 
