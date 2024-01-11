@@ -566,5 +566,6 @@ awful.spawn.with_shell("picom")
 awful.spawn.with_shell("feh --bg-fill ~/.dotfiles/darksky2.png")
 beautiful.useless_gap=10
 beautiful.notification_max_width = 100
-
+mouse.screen = screen.primary
+mouse.coords({x = 960, y = 540})
 
