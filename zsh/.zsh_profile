@@ -9,17 +9,17 @@ bindkey -s ^f "tmux-sessionizer\n"
 source ~/.alias
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/mdziuba/go/bin
-
+export EDITOR=nvim
 setxkbmap -layout pl
 setxkbmap -option lv3:lalt_switch -option lv3:ralt_switch
 xset s off
 xset -dpms
-NUM_MONITORS=$(xrandr --listmonitors | grep -c "Monitors:")
+NUM_MONITORS=$(xrandr --listmonitors | awk "NR>1 {print $1}" | wc -l)
 if [ "$NUM_MONITORS" -eq 2 ]; then
-    xrandr_result=$(xrandr --current | grep DP-5 | grep 1920x1080+1920+0)
+    xrandr_result=$(xrandr --current | grep DP-3 | grep 1920x1080+1920+0)
     if [ -z $xrandr_result ]
     then
-        xrandr --output DP-0 --primary --left-of DP-5
+        xrandr --output HDMI-1 --primary --left-of DP-3
     fi;
 fi 
 

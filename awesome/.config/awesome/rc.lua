@@ -48,11 +48,11 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-
+home_dir = os.getenv("HOME")
 -- This is used later as the default terminal and editor to run.
 terminal = "/usr/bin/kitty -e tmux new"
-editor = os.getenv("EDITOR") or "editor"
-editor_cmd = terminal .. " && " .. editor
+editor = os.getenv("EDITOR") or "nvim"
+editor_cmd =  "/usr/bin/kitty -e nvim " .. home_dir .. "/.dotfiles/awesome/.config/awesome/rc.lua"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
