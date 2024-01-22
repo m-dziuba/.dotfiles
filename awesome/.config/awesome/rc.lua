@@ -121,7 +121,11 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget {
+    format = "%F %H:%M:%S",
+    refresh = 1,
+    widget = wibox.widget.textclock
+}
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
