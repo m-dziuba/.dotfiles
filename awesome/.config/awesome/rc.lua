@@ -19,6 +19,7 @@ local tyrannical = require("tyrannical")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+awful.spawn.with_shell("feh --bg-fill ~/.dotfiles/darksky2.png")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -567,7 +568,17 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.border_focus = "#dcd7ba"
 awful.spawn.with_shell("source ~/.zshrc")
 awful.spawn.with_shell("picom")
-awful.spawn.with_shell("feh --bg-fill ~/.dotfiles/darksky2.png")
+awful.spawn.easy_async_with_shell(
+    "pgrep redshift-gtk",
+    function (stdout, stderr, exitreason, exitcode)
+        if stdout ~= nil and exitcode == 0 then
+            -- naughty.notify({text = "Redshift already running."})
+        elseif exitcode == 1 then
+            -- naughty.notify({text = "Redshift GTK not running. Running a new instance"})
+            awful.spawn.once("redshift-gtk")
+        end
+    end
+)
 beautiful.useless_gap=10
 beautiful.notification_max_width = 100
 mouse.screen = screen.primary
