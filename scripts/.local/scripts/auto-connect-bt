@@ -1,3 +1,4 @@
 #!/usr/bin/bash
-bluetoothctl disconnect F8:4E:17:7F:1B:A3
-bluetoothctl connect F8:4E:17:7F:1B:A3
+bluetoothctl trust F8:4E:17:7F:1B:A3 > /dev/null
+bluetoothctl disconnect F8:4E:17:7F:1B:A3 > /dev/null
+bluetoothctl connect F8:4E:17:7F:1B:A3 > /dev/null

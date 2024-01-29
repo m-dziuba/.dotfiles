@@ -319,10 +319,9 @@ globalkeys = gears.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
-    
+    -- Screenshots
     awful.key({ modkey, "Shift" }, "s", function() awful.spawn.with_shell("maim -s --format png /dev/stdout | xclip -selection clipboard -t image/png -i") end,
-              {description = "show the menubar", group = "launcher"})
-
+              {description = "take a screenshot of a section", group = "launcher"}),
 )
 
 clientkeys = gears.table.join(
@@ -568,6 +567,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.border_focus = "#dcd7ba"
 awful.spawn.with_shell("source ~/.zshrc")
 awful.spawn.with_shell("picom")
+awful.spawn.with_shell("sh ~/.local/scripts/auto-connect-bt")
 awful.spawn.easy_async_with_shell(
     "pgrep redshift-gtk",
     function (stdout, stderr, exitreason, exitcode)
