@@ -320,8 +320,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
     -- Screenshots
-    awful.key({ modkey, "Shift" }, "s", function() awful.spawn.with_shell("maim -s --format png /dev/stdout | xclip -selection clipboard -t image/png -i") end,
-              {description = "take a screenshot of a section", group = "launcher"}),
+    awful.key({ modkey, "Shift" }, "s", function() awful.spawn.with_shell("maim -s -b 3 -c 192,36,0,1 --format png /dev/stdout | xclip -selection clipboard -t image/png -i" ) end,
+              {description = "take a screenshot of a section", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
