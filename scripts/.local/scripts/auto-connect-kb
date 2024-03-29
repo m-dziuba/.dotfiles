@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+bluetoothctl trust C1:FC:EC:69:3A:8D > /dev/null
+bluetoothctl pair C1:FC:EC:69:3A:8D > /dev/null
+bluetoothctl disconnect C1:FC:EC:69:3A:8D > /dev/null
+bluetoothctl connect C1:FC:EC:69:3A:8D > /dev/null

@@ -1,0 +1,29 @@
+# Use XF86AudioMute to mute volume
+"${HOME}/.local/scripts/volume.sh mute"
+   XF86AudioMute
+
+# Use XF86AudioRaiseVolume to raise volume
+"${HOME}/.local/scripts/volume.sh raise"
+   XF86AudioRaiseVolume
+
+# Use XF86AudioLowerVolume to lower volume
+"${HOME}/.local/scripts/volume.sh lower"
+   XF86AudioLowerVolume
+
+# Use XF86AudioPlay/XF86AudioPause to play/pause
+"playerctl --player=firefox,%any play-pause"
+   XF86AudioPlay
+
+"playerctl --player=firefox,%any play-pause"
+   XF86AudioPause
+
+# Use XF86AudioNext to play next track
+"playerctl --player=firefox,%any next"
+   XF86AudioNext
+
+# Use XF86AudioPrev to play previous track
+"playerctl --player=firefox,%any previous"
+   XF86AudioPrev
+
+# XF86ScreenSave to lock screen
+# Cancel to?
