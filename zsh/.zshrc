@@ -20,6 +20,3 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.zsh_profile
 eval "$(zoxide init zsh)"
-
-# Created by `pipx` on 2024-03-27 22:20:07
-export PATH="$PATH:/home/mdziuba/.dotfiles/scripts/.local/bin"
